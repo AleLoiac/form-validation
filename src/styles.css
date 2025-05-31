@@ -9,7 +9,8 @@ form > div {
   width: 250px;
 }
 
-input {
+input,
+select {
   appearance: none;
   outline: 1px solid;
   border: none;
@@ -17,19 +18,27 @@ input {
   padding: 2px 6px;
 }
 
-input:invalid {
+input:invalid,
+select:invalid {
   background-color: rgba(255, 0, 0, 0.3);
 }
 
-input:focus:invalid {
+select option {
+  background-color: white;
+}
+
+input:focus:invalid,
+select:focus:invalid {
   outline: 2px solid red;
 }
 
-input:focus:valid {
+input:focus:valid,
+select:focus:valid {
   outline: 2px solid black;
 }
 
 .error {
   background-color: darkred;
   color: white;
+  border-radius: 0 0 4px 4px;
 }

@@ -14,7 +14,13 @@
       </div>
       <div>
         <label for="country">Country</label>
-        <input type="text" name="country" id="country" required />
+        <select name="country" id="country" required>
+          <option value="" selected disabled>--Choose a country--</option>
+          <option value="italy">Italy</option>
+          <option value="spain">Spain</option>
+          <option value="switzerland">Switzerland</option>
+        </select>
+        <span class="country error"></span>
       </div>
       <div>
         <label for="postal-code">Postal Code</label>
