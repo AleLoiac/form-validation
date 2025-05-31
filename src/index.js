@@ -8,6 +8,10 @@ const country = document.querySelector("#country");
 const countryError = document.querySelector(".country.error");
 const postalCode = document.querySelector("#postal-code");
 const postalCodeError = document.querySelector(".postal-code.error");
+const password = document.querySelector("#password");
+const passwordError = document.querySelector(".password.error");
+const confirmPassword = document.querySelector("#confirm-password");
+const confirmPasswordError = document.querySelector(".confirm-password.error");
 
 email.addEventListener("input", () => {
   emailError.textContent = "";
@@ -22,6 +26,14 @@ postalCode.addEventListener("input", () => {
   if (country.validity.valid) {
     checkPostalCode();
   }
+});
+
+password.addEventListener("input", () => {
+  passwordError.textContent = "";
+});
+
+confirmPassword.addEventListener("input", () => {
+  confirmPasswordError.textContent = "";
 });
 
 form.addEventListener("submit", (e) => {
@@ -47,7 +59,31 @@ form.addEventListener("submit", (e) => {
   } else {
     postalCodeError.textContent = "";
   }
+
+  if (password.validity.tooShort) {
+    passwordError.textContent = "Password must be at least 8 characters";
+  } else {
+    passwordError.textContent = "";
+  }
+
+  checkPassword();
+  if (!confirmPassword.validity.valid) {
+    confirmPasswordError.textContent = "Password must be equal";
+  } else {
+    confirmPasswordError.textContent = "";
+  }
 });
+
+function checkPassword() {
+  const password = document.querySelector("#password").value;
+  const confirmPasswordElement = document.querySelector("#confirm-password");
+
+  if (password === confirmPassword.value) {
+    confirmPassword.setCustomValidity("");
+  } else {
+    confirmPassword.setCustomValidity("Passwords must be equal");
+  }
+}
 
 function checkPostalCode() {
   const constraints = {
