@@ -12,6 +12,7 @@ const password = document.querySelector("#password");
 const passwordError = document.querySelector(".password.error");
 const confirmPassword = document.querySelector("#confirm-password");
 const confirmPasswordError = document.querySelector(".confirm-password.error");
+const feedback = document.querySelector(".feedback");
 
 email.addEventListener("input", () => {
   emailError.textContent = "";
@@ -71,6 +72,12 @@ form.addEventListener("submit", (e) => {
     confirmPasswordError.textContent = "Password must be equal";
   } else {
     confirmPasswordError.textContent = "";
+  }
+
+  if (form.checkValidity()) {
+    feedback.textContent = "Form successfully submitted";
+  } else {
+    feedback.textContent = "Invalid form";
   }
 });
 

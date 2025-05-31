@@ -42,3 +42,8 @@ select:focus:valid {
   color: white;
   border-radius: 0 0 4px 4px;
 }
+
+.feedback {
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
